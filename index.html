@@ -205,29 +205,30 @@
     .title-text span:hover::after {
       transform: scaleX(1);
     }
-    /* Hero buttons ko update karte hain */
+    /* Hero buttons ko mobile ke liye optimize karte hain */
     .hero-buttons {
       display: flex;
-      gap: 1.2rem;
+      gap: 1rem;
       margin-top: 2rem;
       justify-content: center;
     }
     .hero-button {
-      padding: 0.7rem 1.5rem;
-      font-size: 0.9rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.75rem;
       border-radius: 25px;
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       font-weight: 600;
-      text-decoration: none;  /* Remove default anchor underline */
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;  /* Ensure text stays in one line */
     }
     .hero-button.primary {
       background: rgba(255, 255, 255, 0.95);
       color: var(--primary);
       border: none;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
     .hero-button.secondary {
       background: transparent;
@@ -244,6 +245,7 @@
     .hero-button.secondary:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: white;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
     /* Sections ko enhance karte hain */
     section {
@@ -552,115 +554,125 @@
       padding: 4rem;
     }
     .skills-container {
-      width: 100%;
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 2rem;
     }
     .skills-group {
-      margin-bottom: 2.5rem;
-      text-align: center;
+      margin-bottom: 3.5rem;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 150, 199, 0.1);
     }
     .skills-group h3 {
+      font-size: 1.8rem;
       color: var(--text-dark);
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      text-align: left;
-      padding-left: 1rem;
-      border-left: 4px solid var(--primary);
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .skills-group h3::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 25px;
+      background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+      border-radius: 2px;
     }
     .skills-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      padding: 0 1rem;
+      gap: 1.2rem;
+      padding: 0.5rem;
     }
     .skill-item {
-      background: rgba(0, 0, 0, 0.05);
-      color: #2d3436;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 0.5rem 1.2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      position: relative;
-    }
-    .skill-item::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--primary);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-    .skill-item:hover::after {
-      transform: scaleX(1);
-    }
-    /* Skills items ko update karte hain */
-    .skills-group:first-child .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: flex-start;
-      padding: 0.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .skills-group:first-child .skill-item {
-      background: linear-gradient(135deg, #f8faff 0%, #e9ecef 100%);
-      color: #1a1a1a;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 0.6rem 1.2rem;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-    }
-
-    .skills-group:first-child .skill-item:hover {
-      transform: translateY(-2px);
       background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
-      border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Tools & Libraries section ko bhi match karte hain */
-    .skills-group:nth-child(2) .skills-list {
-      gap: 1rem;
-      padding: 0.5rem;
-    }
-
-    .skills-group:nth-child(2) .skill-item {
-      background: linear-gradient(135deg, #f8faff 0%, #e9ecef 100%);
-      padding: 0.6rem 1.2rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #1a1a1a;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      color: var(--text-dark);
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 1rem;
       letter-spacing: 0.3px;
+      border: 1px solid rgba(0, 150, 199, 0.15);
+      box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(0, 150, 199, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
     }
+    .skill-item::before {
+      content: '•';
+      color: var(--primary);
+      font-size: 1.5rem;
+      line-height: 0;
+      margin-right: 0.2rem;
+    }
+    .skill-item:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+      box-shadow: 
+        0 8px 20px rgba(0, 150, 199, 0.1),
+        0 0 0 2px rgba(0, 150, 199, 0.2);
+      border-color: var(--primary);
+    }
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .skills-container {
+        padding: 1rem;
+      }
 
-    /* Certifications section ko bhi match karte hain */
+      .skills-group {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .skills-group h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .skills-list {
+        gap: 1rem;
+      }
+
+      .skill-item {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        flex: 1 1 auto;
+      }
+    }
+    /* Certifications ko special styling */
     .skills-group:last-child .skill-item {
-      font-weight: 700;
-      color: #1a1a1a;
+      background: linear-gradient(135deg, #f8faff 0%, #e9ecef 100%);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--text-dark);
+      font-weight: 600;
+      white-space: normal;  /* Allow text wrapping */
+      height: auto;  /* Allow height to adjust */
+      text-align: left;  /* Left align text */
     }
 
     /* Mobile responsive */
     @media (max-width: 768px) {
-      .skills-group:first-child .skills-list {
-        justify-content: center;
+      .skills-group:last-child .skills-list {
+        display: grid;
+        grid-template-columns: 1fr;  /* Single column */
+        gap: 1rem;
+        width: 100%;
       }
-      
-      .skills-group:first-child .skill-item,
-      .skills-group:nth-child(2) .skill-item,
+
       .skills-group:last-child .skill-item {
-        font-size: 0.9rem;
-        font-weight: 700;
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.85rem;
+        line-height: 1.4;
       }
     }
     /* Projects Section */
@@ -913,7 +925,9 @@
       .contact-container {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 1rem;
+        padding: 0.5rem;
+        width: 95%;
+        margin: 0 auto;
       }
 
       .contact-info {
@@ -934,6 +948,7 @@
 
       .contact-form {
         padding: 1.5rem;
+        width: 100%;
       }
 
       .form-header h3 {
@@ -977,24 +992,42 @@
     /* Extra small screens ke liye */
     @media (max-width: 480px) {
       .nav-links {
-        gap: 0.9rem;
-        padding: 0 0.5rem;
+        gap: 1rem;
       }
 
       .nav-links a {
-        font-size: 1.15rem;
-        padding: 0.3rem 0.6rem;
+        font-size: 0.9rem;
+        padding: 0.3rem 0.5rem;
       }
     }
     /* Skills container ko mobile me adjust karte hain */
     @media (max-width: 768px) {
+      .skills-container {
+        padding: 0 1rem;
+      }
+
       .skills-list {
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 0.8rem;
+        flex-wrap: wrap;
       }
 
       .skill-item {
-        text-align: center;
-        min-width: 120px;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        min-width: auto;
+        flex: 0 1 auto;
+        white-space: nowrap;
+      }
+
+      .skills-group {
+        margin-bottom: 2rem;
+        width: 100%;
+      }
+
+      .skills-group h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
       }
     }
     /* Education section me 2nd GPA bhi red karo */
@@ -1329,6 +1362,113 @@
         padding: 1rem;
       }
     }
+
+    /* Mobile responsive header */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1.5rem;  /* Reduced gap */
+        padding: 0.5rem;
+      }
+
+      .nav-links a {
+        font-size: 1rem;  /* Smaller font */
+        padding: 0.4rem 0.6rem;
+      }
+
+      header {
+        padding: 0.8rem;  /* Reduced padding */
+      }
+    }
+
+    /* Contact form mobile improvements */
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0.5rem;  /* Reduced padding */
+        width: 95%;  /* Increased width */
+        margin: 0 auto;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+        width: 100%;  /* Full width */
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 0.8rem 1rem;  /* Slightly reduced padding */
+      }
+    }
+
+    /* Skills items mobile improvements */
+    @media (max-width: 768px) {
+      .skills-container {
+        padding: 0 1rem;
+      }
+
+      .skills-list {
+        justify-content: flex-start;  /* Left align */
+        gap: 0.8rem;  /* Reduced gap */
+        flex-wrap: wrap;
+      }
+
+      .skill-item {
+        font-size: 0.9rem;  /* Smaller font */
+        padding: 0.5rem 1rem;
+        min-width: auto;  /* Remove fixed width */
+        flex: 0 1 auto;  /* Better flex behavior */
+        white-space: nowrap;  /* Prevent text wrap */
+      }
+
+      .skills-group {
+        margin-bottom: 2rem;
+        width: 100%;
+      }
+
+      .skills-group h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Extra small screens ke liye */
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.5rem;
+      }
+    }
+
+    .designer-link {
+      color: var(--primary-light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .designer-link:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* Footer text ko fix karte hain */
+    .footer-text {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .designer-credit {
+      margin-top: 0.5rem;
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -1557,7 +1697,10 @@
         <a href="#" target="_blank">𝕏</a>
         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
-      <p class="footer-text">© 2025 Aryan Khunt. All rights reserved.</p>
+      <div class="footer-text">
+        <p>© 2025 Aryan Khunt. All rights reserved.</p>
+        <p class="designer-credit">-Designed by <a href="https://codearena07.github.io/portfolio/" target="_blank" class="designer-link">codeArena</a></p>
+      </div>
     </div>
   </footer>
   <script>
